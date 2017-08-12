@@ -20,7 +20,7 @@ module.exports = function(app) {
  
 
   // chatroom route loads chatroom.html
-  app.get("/blog", function(req, res) {
+  app.get("/chatroom", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/chatroom.html"));
   });
 
