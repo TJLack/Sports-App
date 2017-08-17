@@ -20,6 +20,14 @@ module.exports = function(app) {
     });
   });
 
+//GET route for getting all of the users 
+  app.get("/api/users/", function(req,res){
+    db.Users.findAll({})
+    .then(function(dbPost){
+      res.json(dbPost);
+    })
+  })
+
   // Get route for returning posts of a specific group
   app.get("/api/posts/group/:group", function(req, res) {
     db.Chatrooms.findAll({
@@ -56,6 +64,21 @@ module.exports = function(app) {
       res.json(dbPost);
     });
   });
+
+  //POST route for adding a new user
+
+  app.post("/api/users",function(req,res){
+    console.log(req.body);
+    db.Users.create({
+      userEmail: req.body.userEmail,
+      userPwd: req.body.userPwd,
+      userFirstname: req.body.userFirstname,
+      userLastname: req.body.userLastname 
+    })
+    .then(function(dbPost){
+      res.json(dbPost);
+    })
+  })
 
   // DELETE route for deleting posts   * ADD IN USER VALIDATION
   app.delete("/api/posts/:id", function(req, res) {

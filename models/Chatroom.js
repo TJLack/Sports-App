@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
 
 
   Chatrooms.associates = function(models){
-    Chatrooms.belongsTo(models.Author, {
+    Chatrooms.belongsTo(models.Users, {
       foreignKey: {
         allowNull: false
       }
