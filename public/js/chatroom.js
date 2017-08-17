@@ -33,7 +33,7 @@ $("#chatSubmit").on("click",function(){
 
 
 function insertPost(userName, userMessage, groupName) {
-    
+    //working
     var chat = {
       title: userName,
       body: userMessage,
