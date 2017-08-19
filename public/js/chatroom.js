@@ -62,7 +62,7 @@ function appendData(data){
       row.addClass("message");
 
       row.append("<p>" + data[i].title + " sent.. </p>");
-      row.append("<p> to.. " +data[i].group + "</p>");
+      row.append("<p> to.. " + data[i].group + "</p>");
       row.append("<p>" + data[i].body + "</p>");
       row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
 

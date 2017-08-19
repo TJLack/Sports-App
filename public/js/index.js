@@ -1,4 +1,7 @@
 // Get the modal
+
+
+
 var modal = document.getElementById('myModal');
 var modal2 = document.getElementById('myOtherModal');
 
@@ -49,9 +52,7 @@ $("#loginSubmit").on("click",function(){
 	console.log("User attemping to sign-in");
 	var userEmail = $("#email").val().trim();
 	var userPassword = $("#pwd").val().trim();
-
-	console.log(userEmail);
-	console.log(userPassword);
+	
 
 	checkUser(userEmail,userPassword);
 
@@ -69,11 +70,7 @@ $("#signSubmit").on("click",function(){
 	var userFirstname = $("#firstName").val().trim();
 	var userLastname = $("#lastName").val().trim();
 
-	console.log(userEmail);
-	console.log(userPassword);
-	console.log(confirmedPassword);
-	console.log(userFirstname);
-	console.log(userLastname);
+	
 
 	insertUser(userEmail,userPassword,confirmedPassword,userFirstname,userLastname);
 
@@ -95,6 +92,8 @@ $("#signSubmit").on("click",function(){
 
 	}else{
 		//let the user know the passwords don't match
+    $("p").text("Error: Passwords did not match!");
+    console.log("did this happen");
 	}
    
   }
@@ -108,9 +107,10 @@ $("#signSubmit").on("click",function(){
 
       		}else{
       			//let the user know the password was invalid
+            $("p").text("Error: Invalid Password");
       		}
       	}else{
-      		//let the user know the email was invalid
+      		$("p").text("Error: No username matching this email was found!");
       	}
       }
     });
@@ -119,5 +119,7 @@ $("#signSubmit").on("click",function(){
 
   function loadNewPage(){
   	// this would load chatroom.html
+     window.location = "http://localhost:8080/chatroom";
+    
   	console.log("new page loaded!")
   }
