@@ -1,16 +1,18 @@
 module.exports = function(sequelize, DataTypes) {
-  var Users = sequelize.define("Users", {
-    userEmail: {
+  var routes = sequelize.define("routes", {
+    routeName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    userPwd: {
+    routeImage: {
       type: DataTypes.STRING,
       allowNull: false,
-      len: [1]
+      validate: {
+        len: [1]
+      }
     },
     userFirstname: {
       type: DataTypes.STRING,
@@ -19,14 +21,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    userLastname: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    userLocation: {
+    routeCoordinates: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -34,6 +29,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Users;
+  return routes;
 };
 
